@@ -2,11 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+from pathlib import Path
 
 
 # Load model and scaler
-model = joblib.load("best_drought_model.pkl")
-scaler = joblib.load("scaler.pkl")
+app_dir = Path(__file__).resolve().parent
+model = joblib.load(app_dir / "best_drought_model.pkl")
+scaler = joblib.load(app_dir / "scaler.pkl")
 
 
 # Page config
